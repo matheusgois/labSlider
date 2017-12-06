@@ -18,12 +18,12 @@ div {
 
 .leftWizard{
   transform: rotateY(40deg);
-  opacity: 2;
+
 }
 
 .rightWizard{
   transform: rotateY(-40deg);
-  opacity: 2;
+
 }
 
 div.wiz:hover{
