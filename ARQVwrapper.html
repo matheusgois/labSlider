@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Troca</title>
+	<style type="text/css">
+		div {
+			width: 200px;
+			height: 150px;
+			position: relative;
+			transition: 1s;
+			margin: 5px;
+			box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+			display: inline-block;
+		}
+
+		.wiz{
+			margin-left: -140px;
+		}
+
+		.wrapper{
+			perspective: 600px;
+		}
+
+		.leftWizard{
+			transform: rotateY(40deg);
+			opacity: 2;
+		}
+
+		.rightWizard{
+			transform: rotateY(-40deg);
+			opacity: 2;
+		}
+
+		div.wiz:hover{
+			z-index: 999;
+			transform: scale(1.2);
+		}
+
+		div.rightWizard:hover{
+			margin-left: 0px;
+		}
+
+		div.leftWizard:hover{
+			margin-right: 160px;
+		}
+		.center{
+			transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+			z-index: 10;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="wrapper" style="background: transparent; margin-left: 200px; width: auto;">
+
+		<div id="0" class="wiz">
+			<img src="http://placehold.it/200x150?text=1">
+		</div>
+
+		<div id="1" class="wiz">
+			<img src="http://placehold.it/200x150?text=2">
+		</div>
+
+		<div id="2" class="wiz">
+			<img src="http://placehold.it/200x150?text=3">
+		</div>
+
+		<div id="3" class="wiz">
+			<img src="http://placehold.it/200x150?text=4">
+		</div>
+
+		<div id="4" class="wiz">
+			<img src="http://placehold.it/200x150?text=5">
+		</div>
+
+		<div id="5" class="wiz">
+			<img src="http://placehold.it/200x150?text=6">
+		</div>
+
+		<div id="6" class="wiz">
+			<img src="http://placehold.it/200x150?text=7">
+		</div>
+
+		<div id="7" class="wiz">
+			<img src="http://placehold.it/200x150?text=8">
+		</div>
+
+		<div id="8" class="wiz">
+			<img src="http://placehold.it/200x150?text=9">
+		</div>
+	</div>
+
+	<div id="rangeSlider" style="background: transparent;" class="none">
+		<input type="range" oninput="updateValue(this.value);" value="0" min="0" max="8" >
+		<span id="valor">0</span>
+	</div>
+
+<script>
+
+var itens = ["Perfil", "Historico", "Fornecedor", "Propostas", "Propostas", "Propostas", "Propostas", "Propostas", "Propostas"];
+
+$(function init(){
+	document.getElementById("0").classList.add("center");
+	document.getElementById("1").classList.add("rightWizard");
+	document.getElementById("2").classList.add("rightWizard");
+	document.getElementById("3").classList.add("rightWizard");
+	document.getElementById("4").classList.add("rightWizard");
+	document.getElementById("5").classList.add("rightWizard");
+	document.getElementById("6").classList.add("rightWizard");
+	document.getElementById("7").classList.add("rightWizard");
+	document.getElementById("8").classList.add("rightWizard");
+});
+
+
+	function updateValue(meuValor){
+
+		document.getElementById("valor").innerHTML = meuValor;
+
+		for(var i=0;i<=8;i++){
+			document.getElementById(""+i+"").classList.remove("center");
+			document.getElementById(""+i+"").classList.remove("rightWizard");
+			document.getElementById(""+i+"").classList.remove("leftWizard");
+			document.getElementById(""+i+"").style.zIndex = "0";
+		}
+
+		for(var i=0; i <= itens.length; i++){
+			var currentNumber = document.getElementById(""+ i +"");
+			if(i < meuValor){
+				currentNumber.classList.add('leftWizard');
+			}else if(i > meuValor){
+				var z = 10 - i;
+				currentNumber.classList.add('rightWizard');
+				currentNumber.style.zIndex = z;
+			}else{
+				currentNumber.classList.add('center');
+				currentNumber.style.zIndex = "10";
+			}
+		}
+	}
+</script>
+</body>
+</html>
