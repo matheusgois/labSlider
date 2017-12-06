@@ -46,25 +46,30 @@
 	</div>
 
 	<div id="rangeSlider" style="background: transparent;" class="none">
-		<input type="range" oninput="updateValue(this.value);" value="0" min="0" max="8" >
+		<input type="range" oninput="updateValue(this.value);" value="5" min="0" max="8" >
 		<span id="valor">0</span>
 	</div>
 
 <script>
-
+init();
 var itens = ["Perfil", "Historico", "Fornecedor", "Propostas", "Propostas", "Propostas", "Propostas", "Propostas", "Propostas"];
 
-// $(function init(){
-// 	document.getElementById("0").classList.add("center");
-// 	document.getElementById("1").classList.add("rightWizard");
-// 	document.getElementById("2").classList.add("rightWizard");
-// 	document.getElementById("3").classList.add("rightWizard");
-// 	document.getElementById("4").classList.add("rightWizard");
-// 	document.getElementById("5").classList.add("rightWizard");
-// 	document.getElementById("6").classList.add("rightWizard");
-// 	document.getElementById("7").classList.add("rightWizard");
-// 	document.getElementById("8").classList.add("rightWizard");
-// });
+function init(){
+	document.getElementById("0").classList.add("leftWizard");
+	document.getElementById("1").classList.add("leftWizard");
+	document.getElementById("2").classList.add("leftWizard");
+	document.getElementById("3").classList.add("leftWizard");
+	document.getElementById("4").classList.add("center");
+	document.getElementById("5").classList.add("rightWizard");
+	document.getElementById("6").classList.add("rightWizard");
+	document.getElementById("7").classList.add("rightWizard");
+	document.getElementById("8").classList.add("rightWizard");
+
+	document.getElementById("5").style.zIndex = 5;
+	document.getElementById("6").style.zIndex = 4;
+	document.getElementById("7").style.zIndex = 3;
+	document.getElementById("8").style.zIndex = 2;
+};
 
 	function updateValue(meuValor){
 
