@@ -1,5 +1,6 @@
 div .s {
   display: inline-block;
+  position: relative;
 }
 
 .wiz{
@@ -25,7 +26,6 @@ div .s {
 }
 
 div.wiz:hover{
-  z-index: 999;
   transform: scale(1.2);
 }
 
