@@ -20,8 +20,6 @@ function init(){
 
 	function updateValue(meuValor){
 
-		document.getElementById("valor").innerHTML = meuValor;
-
 		for(var i=0;i<=8;i++){
 			document.getElementById(""+i+"").classList.remove("center");
 			document.getElementById(""+i+"").classList.remove("rightWizard");
